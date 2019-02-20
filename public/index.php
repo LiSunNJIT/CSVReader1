@@ -40,7 +40,6 @@ class html {
 
                 $array = $record->returnArray();
                 $values = array_values($array);
-
                 print_r($values);
 
             }
