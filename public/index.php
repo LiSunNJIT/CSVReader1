@@ -20,34 +20,52 @@ class main {
 
 
 class html {
-
+    
     public static function generateTable($records) {
-
+        
+        echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+                crossorigin="anonymous">';
+        
+        echo '<head><tilte>tfboys |_(^_^)_|</tilte></head>';
+        
+        echo'<table class="table table-striped"><thead><tr>';
 
         $count = 0;
-
+        print("<table border='1'>");
         foreach ($records as $record) {
-
-            if($count == 0) {
-
+            if ($count == 0) {
+                print("<tr class = 'header'>");
                 $array = $record->returnArray();
                 $fields = array_keys($array);
                 $values = array_values($array);
-                print_r($fields);
-                print_r($values);
-
-            } else {
-
+                foreach ($fields as $columnName)
+                {
+                    print("<th>");
+                    print_r($columnName);
+                    print("</th>");
+                }
+                print("</tr>");
+            }
+            {
+                print("<tr>");
                 $array = $record->returnArray();
                 $values = array_values($array);
-                print_r($values);
-
+                foreach ($values as $columnValue)
+                {
+                    print("<td>");
+                    print_r($columnValue);
+                    print("</td>");
+                }
+                print("</tr>");
             }
             $count++;
-
         }
+        print("</table>");
+        print("</html>");
     }
 }
+
 
 class csv {
 
